@@ -9,9 +9,10 @@
 - GUI 환경에서 채팅 프로그램 구현
 
 
-#### Concepts
-##### socket
-A socket is one endpoint of a two-way communication link between two programs running on the network.
+### Concepts
+* __socket__  
+a socket is one endpoint of a two-way communication link between two programs running on the network.
+
 
 ### Learning By Doing
 * IP Address
