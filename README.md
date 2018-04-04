@@ -1,7 +1,7 @@
 # Chatting Program
 
 
-### overview
+### Overview
 2018 04 04 ~   
 - 자바로 소켓 서버와 소켓 클라이언트 작성
 - 서버와 클라이언트 프로그램에서 소켓에 데이터를 읽고 쓰기
@@ -42,7 +42,7 @@ __클라이언트와 서버는 소켓에 쓰거나 소켓에서 읽음으로써 
 ### Part of Code
 
 
-### reference 
+### Reference 
 * [Java Socket Programming - JournalDev](https://www.journaldev.com/741/java-socket-programming-server-client)
 * [Java Networking - java T point](https://www.javatpoint.com/java-networking)
 * [Java Networking - tutorialspoint](https://www.tutorialspoint.com/java/java_networking.htm)
