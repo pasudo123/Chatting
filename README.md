@@ -1,9 +1,17 @@
 # Chatting Program
-자바를 이용해서 채팅 프로그램 만들기. 
+
 
 ### overview
-[ 2018 04 04 ]  
-TCP/IP 소켓 프로그래밍에 대해서 공부하기 위함.
+2018 04 04 ~   
+- 자바로 소켓 서버와 소켓 클라이언트 작성
+- 서버와 클라이언트 프로그램에서 소켓에 데이터를 읽고 쓰기
+- 개념정리 및 공부
+- GUI 환경에서 채팅 프로그램 구현
+
+
+#### Concepts
+##### socket
+A socket is one endpoint of a two-way communication link between two programs running on the network.
 
 ### Learning By Doing
 * IP Address
@@ -14,6 +22,9 @@ TCP/IP 소켓 프로그래밍에 대해서 공부하기 위함.
   * TCP
   * UDP
 * Socket
+
+### Part of Code
+
 
 ### reference 
 * [Java Socket Programming - JournalDev](https://www.journaldev.com/741/java-socket-programming-server-client)
