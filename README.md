@@ -1,7 +1,4 @@
-# Chatting Program
-
-
-### Overview
+## Overview
 2018 04 04 ~   
 - 자바로 소켓 서버와 소켓 클라이언트 작성
 - 서버와 클라이언트 프로그램에서 소켓에 데이터를 읽고 쓰기
@@ -10,7 +7,7 @@
 - __클라이언트와 서버는 소켓에 쓰거나 소켓에서 읽음으로써 서로 통신할 수 있다.__
 
 
-### Concepts
+## Concepts
 * __Socket__
   * 소켓은 돌아가는 두 프로그램이 서로 통신을 수행할 수 있도록 양쪽에 생성되는 __엔드포인트(endpoint)__ 이다.
   * 소켓 서버는 특정 컴퓨터에서 실행되고, __특정 포트 번호에 바인딩 된 소켓__ 을 가지고 있다.
@@ -27,7 +24,7 @@
 * __End-Point__
   * 엔드포인트는 IP주소와 포트번호의 조합이다. 모든 TCP 연결은 두 개의 끝점으로 고유하게 식별될 수 있다. 두 개의 끝점이 고유하게 식별된다면 클라이언트와 서버간에 여러 개의 연결을 가질 수 있게 된다. (Multiple Connections)
 
-### Learning By Doing
+## Learning By Doing
 * IP Address
 * Port Number
 * Protocol
@@ -37,10 +34,82 @@
   * UDP
 * Socket
 
-### Part of Code
+## Part of Code
+#### Socket Server
+~~~
+server = new ServerSocket(PORT);
 
+// 해당 포트번호로 클라이언트에게 요청이 올때까지 계속 대기
+while(true){
+	
+	System.out.println("Waiting for Client Request");
+	Socket socket = server.accept();
+	
+	// read from socket & convert to String
+	ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
+	String message = (String) ois.readObject();
+	
+	System.out.println("Message Received : " + message);
+	
+	// create Object & write Object to Socket
+	ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
+	oos.writeObject("Hi Client " + message);
+	
+	// close(
+	ois.close();
+	oos.close();
+	
+	// exit 요청은 서버 종료 (대소문자 구분 X)
+	if(message.equalsIgnoreCase("exit"))
+		break;
 
-### Reference 
+}// while(true)
+
+System.out.println("Shutdown Socket Server");
+server.close();
+~~~
+
+#### Socket Client
+~~~
+// localhost IP 획득
+// 서버가 다른 IP에 존재하면 해당 IP로 선정 (서버측의 IP로 구성)
+InetAddress host = InetAddress.getLocalHost();
+
+Socket socket = null;
+ObjectOutputStream oos = null;
+ObjectInputStream ois = null;
+
+int size = 5;
+
+for(int i = 1; i <= size; i++){
+	
+	// Establish Socket connection to server
+	socket = new Socket(host.getHostAddress(), 9876);
+	
+	// write to socket using ObjectOutputStream
+	oos = new ObjectOutputStream(socket.getOutputStream());
+	
+	System.out.println("Sending Request to Socket Server");
+	
+	if(i == size)
+		oos.writeObject("exit");
+	else
+		oos.writeObject(i+"");
+	
+	ois = new ObjectInputStream(socket.getInputStream());
+	String message = (String) ois.readObject();
+	
+	System.out.println("Message : " + message);
+	
+	// close()
+	ois.close();
+	oos.close();
+	
+	Thread.sleep(1000);
+}
+~~~
+
+## Reference 
 * [Java Socket Programming - JournalDev](https://www.journaldev.com/741/java-socket-programming-server-client)
 * [Java Networking - java T point](https://www.javatpoint.com/java-networking)
 * [Java Networking - tutorialspoint](https://www.tutorialspoint.com/java/java_networking.htm)
