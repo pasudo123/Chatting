@@ -1,11 +1,21 @@
 # Chatting Program
 자바를 이용해서 채팅 프로그램 만들기. 
 
-## overview
+### overview
 [ 2018 04 04 ]  
-TCP/IP 소켓 프로그래밍에 대해서 공부하기 위함
+TCP/IP 소켓 프로그래밍에 대해서 공부하기 위함.
 
-## reference 
+### Learning By Doing
+* IP Address
+* Port Number
+* Protocol
+* MAC Address
+* Connection-Oriented Protocol & Connection-less Protocol
+  * TCP
+  * UDP
+* Socket
+
+### reference 
 * [Java Socket Programming - JournalDev](https://www.journaldev.com/741/java-socket-programming-server-client)
 * [Java Networking - java T point](https://www.javatpoint.com/java-networking)
 * [Java Networking - tutorialspoint](https://www.tutorialspoint.com/java/java_networking.htm)
