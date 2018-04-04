@@ -47,3 +47,4 @@ __클라이언트와 서버는 소켓에 쓰거나 소켓에서 읽음으로써 
 * [Java Networking - java T point](https://www.javatpoint.com/java-networking)
 * [Java Networking - tutorialspoint](https://www.tutorialspoint.com/java/java_networking.htm)
 * [Java Socket - JAVA school](http://java-school.net/java/Socket)
+* [All About Socket](https://docs.oracle.com/javase/tutorial/networking/sockets/index.html)
