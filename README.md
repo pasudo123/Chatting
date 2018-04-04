@@ -115,3 +115,4 @@ for(int i = 1; i <= size; i++){
 * [Java Networking - tutorialspoint](https://www.tutorialspoint.com/java/java_networking.htm)
 * [Java Socket - JAVA school](http://java-school.net/java/Socket)
 * [All About Socket](https://docs.oracle.com/javase/tutorial/networking/sockets/index.html)
+* [Lesson: All About Datagrams](https://docs.oracle.com/javase/tutorial/networking/datagrams/index.html)
