@@ -19,8 +19,8 @@
 * __Server-Side__
   * 클라이언트의 요청에 대해 호스트이름과 포트번호가 이상 없으면, 서버는 연결을 __승인(accept)__ 한다. 
   * 서버는 동일한 로컬 포트번호에 바인드된 새로운 소켓을 가지고 온다.
-  * 클라이언트의 주소 및 포트로 설정된 Remote endpoint 가 클라이언트의 주소와 포트로 설정되어있다.
-  * 클라이언트의 연결 요청에 대한 새로운 소켓이 필요하다.  
+  * 클라이언트의 주소 및 포트로 설정된 __Remote endpoint(=Remote Socket)__ 가 있다.  
+  * 클라이언트의 연결 요청에 대한 새로운 소켓이 필요하다.  
 * __End-Point__
   * 엔드포인트는 IP주소와 포트번호의 조합이다. 모든 TCP 연결은 두 개의 끝점으로 고유하게 식별될 수 있다. 두 개의 끝점이 고유하게 식별된다면 클라이언트와 서버간에 여러 개의 연결을 가질 수 있게 된다. (Multiple Connections)
 
@@ -108,6 +108,12 @@ for(int i = 1; i <= size; i++){
 	Thread.sleep(1000);
 }
 ~~~
+
+## Error Message
+* _java.net.SocketException: Connection reset by peer: socket write error_  
+소켓에 쓰기를 수행하는 경우, 반대편 소켓에 close 된 경우 발생
+* _java.net.SocketException: Connection reset_  
+소켓을 읽기를 수행하는 경우, 반대변 소켓에 close 된 경우 발생
 
 ## Reference 
 * [Java Socket Programming - JournalDev](https://www.journaldev.com/741/java-socket-programming-server-client)
