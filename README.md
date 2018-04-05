@@ -109,6 +109,12 @@ for(int i = 1; i <= size; i++){
 }
 ~~~
 
+## Error Message
+* _java.net.SocketException: Connection reset by peer: socket write error_  
+소켓에 쓰기를 수행하는 경우, 반대편 소켓에 close 된 경우 발생
+* _java.net.SocketException: Connection reset_  
+소켓을 읽기를 수행하는 경우, 반대변 소켓에 close 된 경우 발생
+
 ## Reference 
 * [Java Socket Programming - JournalDev](https://www.journaldev.com/741/java-socket-programming-server-client)
 * [Java Networking - java T point](https://www.javatpoint.com/java-networking)
