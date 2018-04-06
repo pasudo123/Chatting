@@ -1,9 +1,6 @@
 ## Overview
 2018 04 04 ~   
-- 자바로 소켓 서버와 소켓 클라이언트 작성
-- 서버와 클라이언트 프로그램에서 소켓에 데이터를 읽고 쓰기
-- 개념정리 및 공부
-- GUI 환경에서 채팅 프로그램 구현
+- 자바로 소켓환경에서 채팅 프로그램 구현.
 - __클라이언트와 서버는 소켓에 쓰거나 소켓에서 읽음으로써 서로 통신할 수 있다.__
 
 
@@ -111,9 +108,9 @@ for(int i = 1; i <= size; i++){
 
 ## Error Message
 * _java.net.SocketException: Connection reset by peer: socket write error_  
-소켓에 쓰기를 수행하는 경우, 반대편 소켓에 close 된 경우 발생
+__소켓에 쓰기를 수행하는 경우__, 반대편 소켓에 close 된 경우 발생
 * _java.net.SocketException: Connection reset_  
-소켓을 읽기를 수행하는 경우, 반대변 소켓에 close 된 경우 발생
+__소켓을 읽기를 수행하는 경우__, 반대변 소켓에 close 된 경우 발생
 
 ## Reference 
 * [Java Socket Programming - JournalDev](https://www.journaldev.com/741/java-socket-programming-server-client)
