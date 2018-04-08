@@ -106,6 +106,9 @@ for(int i = 1; i <= size; i++){
 }
 ~~~
 
+## Flow Chart : Interaction between Client And Server
+![Flow Chart About Client And Server Socket Networking](https://www.codeproject.com/KB/IP/586000/network4_thumb_4_.png "Socket Networking")
+
 ## Error Message
 * _java.net.SocketException: Connection reset by peer: socket write error_  
 __소켓에 쓰기를 수행하는 경우__, 반대편 소켓에 close 된 경우 발생
