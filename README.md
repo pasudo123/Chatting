@@ -33,78 +33,7 @@
 
 ## Part of Code
 #### Socket Server
-~~~
-server = new ServerSocket(PORT);
-
-// 해당 포트번호로 클라이언트에게 요청이 올때까지 계속 대기
-while(true){
-	
-	System.out.println("Waiting for Client Request");
-	Socket socket = server.accept();
-	
-	// read from socket & convert to String
-	ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
-	String message = (String) ois.readObject();
-	
-	System.out.println("Message Received : " + message);
-	
-	// create Object & write Object to Socket
-	ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
-	oos.writeObject("Hi Client " + message);
-	
-	// close(
-	ois.close();
-	oos.close();
-	
-	// exit 요청은 서버 종료 (대소문자 구분 X)
-	if(message.equalsIgnoreCase("exit"))
-		break;
-
-}// while(true)
-
-System.out.println("Shutdown Socket Server");
-server.close();
-~~~
-
 #### Socket Client
-~~~
-// localhost IP 획득
-// 서버가 다른 IP에 존재하면 해당 IP로 선정 (서버측의 IP로 구성)
-InetAddress host = InetAddress.getLocalHost();
-
-Socket socket = null;
-ObjectOutputStream oos = null;
-ObjectInputStream ois = null;
-
-int size = 5;
-
-for(int i = 1; i <= size; i++){
-	
-	// Establish Socket connection to server
-	socket = new Socket(host.getHostAddress(), 9876);
-	
-	// write to socket using ObjectOutputStream
-	oos = new ObjectOutputStream(socket.getOutputStream());
-	
-	System.out.println("Sending Request to Socket Server");
-	
-	if(i == size)
-		oos.writeObject("exit");
-	else
-		oos.writeObject(i+"");
-	
-	ois = new ObjectInputStream(socket.getInputStream());
-	String message = (String) ois.readObject();
-	
-	System.out.println("Message : " + message);
-	
-	// close()
-	ois.close();
-	oos.close();
-	
-	Thread.sleep(1000);
-}
-~~~
 
 ## Flow Chart : Interaction between Client And Server
 ![Flow Chart About Client And Server Socket Networking](https://www.codeproject.com/KB/IP/586000/network4_thumb_4_.png "Socket Networking")
