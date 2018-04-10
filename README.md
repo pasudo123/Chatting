@@ -51,3 +51,4 @@ __소켓을 읽기를 수행하는 경우__, 반대변 소켓에 close 된 경�
 * [Java Socket - JAVA school](http://java-school.net/java/Socket)
 * [All About Socket](https://docs.oracle.com/javase/tutorial/networking/sockets/index.html)
 * [Lesson: All About Datagrams](https://docs.oracle.com/javase/tutorial/networking/datagrams/index.html)
+* [How to create a chat console application in java using socket](http://www.codejava.net/java-se/networking/how-to-create-a-chat-console-application-in-java-using-socket)
