@@ -21,19 +21,6 @@
 * __End-Point__
   * 엔드포인트는 IP주소와 포트번호의 조합이다. 모든 TCP 연결은 두 개의 끝점으로 고유하게 식별될 수 있다. 두 개의 끝점이 고유하게 식별된다면 클라이언트와 서버간에 여러 개의 연결을 가질 수 있게 된다. (Multiple Connections)
 
-## Learning By Doing
-* IP Address
-* Port Number
-* Protocol
-* MAC Address
-* Connection-Oriented Protocol & Connection-less Protocol
-  * TCP
-  * UDP
-* Socket
-
-## Part of Code
-#### Socket Server
-#### Socket Client
 
 ## Flow Chart : Interaction between Client And Server
 ![Flow Chart About Client And Server Socket Networking](https://www.codeproject.com/KB/IP/586000/network4_thumb_4_.png "Socket Networking")
@@ -46,9 +33,5 @@ __소켓을 읽기를 수행하는 경우__, 반대변 소켓에 close 된 경�
 
 ## Reference 
 * [Java Socket Programming - JournalDev](https://www.journaldev.com/741/java-socket-programming-server-client)
-* [Java Networking - java T point](https://www.javatpoint.com/java-networking)
-* [Java Networking - tutorialspoint](https://www.tutorialspoint.com/java/java_networking.htm)
 * [Java Socket - JAVA school](http://java-school.net/java/Socket)
-* [All About Socket](https://docs.oracle.com/javase/tutorial/networking/sockets/index.html)
-* [Lesson: All About Datagrams](https://docs.oracle.com/javase/tutorial/networking/datagrams/index.html)
 * [How to create a chat console application in java using socket](http://www.codejava.net/java-se/networking/how-to-create-a-chat-console-application-in-java-using-socket)
