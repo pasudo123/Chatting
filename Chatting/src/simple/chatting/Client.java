@@ -29,13 +29,13 @@ public class Client {
 	private String IP = null;
 	private Socket socket = null; 
 	
-	/** 서버로부터 [전송하는] 데이터 스트림 **/
+	/** 서버에게 [쓰기] **/
 	private InputStreamReader isr = null;
 	private BufferedReader br = null;
 	private String sendMessage = new String();
 	private ObjectOutputStream out = null;
 	
-	/** 서버로부터 [읽어들이는] 변수들 **/
+	/** 서버로부터 [읽기] **/
 	private String recvMessage = new String();
 	private ObjectInputStream in = null;
 	
