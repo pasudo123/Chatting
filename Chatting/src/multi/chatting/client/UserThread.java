@@ -1,7 +1,13 @@
 package multi.chatting.client;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.net.Socket;
 
 import multi.chatting.server.ChatServer;
@@ -18,6 +24,7 @@ public class UserThread extends Thread{
 	
 	private Socket socket;
 	private ChatServer server;
+	private PrintWriter writer;
 	
 	public UserThread(Socket socket, ChatServer server) {
 		this.socket = socket;
@@ -26,22 +33,51 @@ public class UserThread extends Thread{
 	
 	public void run() {
 		
-		/** 서버에게 [쓰기] **/
-		String sendMessage = new String();
-		ObjectOutputStream out = null;
-		
-		/** 서버로부터 [읽기] **/
-		String recvMessage = new String();
-		ObjectInputStream in = null;
-		
 		try {
 			
-			out = new ObjectOutputStream(socket.getOutputStream());
-			out.writeObject(sendMessage);
-			out.flush();
+			InputStream input = socket.getInputStream();
+			BufferedReader reader = new BufferedReader(new InputStreamReader(input));
 			
+			OutputStream output = socket.getOutputStream();
+			writer = new PrintWriter(output, true);
+			
+			printUsers();
+			
+			String userName = reader.readLine();
+			server.addUserName(userName);
+			
+			String serverMessage = "New User Connected :: " + userName;
+			server.broadcast(serverMessage, this);
+			
+			String clientMessage;
+			
+			do {
+				clientMessage = reader.readLine();
+				serverMessage = "[" + userName + "]" + clientMessage;
+				server.broadcast(serverMessage,this);
+			} while(!clientMessage.equals("bye"));
+				
+			server.removeUser(userName, this);
+			socket.close();
+			
+			serverMessage = userName + " has quitted.";
+			server.broadcast(serverMessage, this);
+			
+		} catch(IOException e) {
+			System.out.println("Error in UserThread : " + e.getMessage());
+			e.printStackTrace();
 		}
-		
 	}
 	
+	private void printUsers() {
+		if(server.hasUsers()) {
+			writer.println("Connected Users : " + server.getUserNames());
+		}else {
+			writer.println("No Other users connected");
+		}
+	}
+	
+	public void sendMessage(String message) {
+		writer.println(message);
+	}
 }
